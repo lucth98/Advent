@@ -1,26 +1,35 @@
 package company;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DayThreeTest {
-    public static int submarine(List<String> input){
-        int result=0;
-        for (int i=1;i<input.size()-2;i++){
-            int currentDep=sumOfTheNextThreeVallues(input,i);
-            int previusDep=sumOfTheNextThreeVallues(input,i-1);
+    @Test
+    void testExemple(){
+        String path="resources/day3Test.txt";
+        List<String> input=TestUtils.readFileIntoList(path);
 
-            if(currentDep>previusDep){
-                result++;
-            }
+        int result=DayThree.getPower(input);
 
-        }
-        return result;
+        System.out.println(result);
+        assertEquals(198,result);
+
+
+
     }
 
-    private static int sumOfTheNextThreeVallues(List<String> input,int index){
-        return Integer.parseInt(input.get(index))+Integer.parseInt(input.get(index+1))+Integer.parseInt(input.get(index+2));
+    @Test
+    void testExemple2(){
+        String path="resources/day1.txt";
+        List<String> input=TestUtils.readFileIntoList(path);
+
+        int result=DayTow.submarine(input);
+
+        System.out.println(result);
+        //  assertEquals(7,result);
 
 
 

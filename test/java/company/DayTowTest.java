@@ -35,4 +35,43 @@ class DayTowTest {
 
 
     }
+
+    @Test
+    void testMovement(){
+        DayTow dayTow =new DayTow();
+
+        String path="resources/moveTest.txt";
+        List<String> input=TestUtils.readFileIntoList(path);
+
+        dayTow.move(input);
+
+        int result=dayTow.getResult();
+        System.out.println(result);
+        assertEquals(150,result);
+
+
+
+
+    }
+
+
+
+
+    @Test
+    void testMovement2(){
+        DayTow dayTow =new DayTow();
+
+        String path="resources/move.txt";
+        List<String> input=TestUtils.readFileIntoList(path);
+
+        dayTow.move(input);
+
+        int result=dayTow.getResult();
+        System.out.println(result);
+
+
+
+
+
+    }
 }

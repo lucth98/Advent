@@ -4,26 +4,27 @@ import java.util.List;
 
 public class DayThree {
     public static int getPower(List<String> intput){
-
-
         return getGamma(intput)*getEpsilon(intput);
     }
 
     private static int getGamma(List<String> intput){
         int result=0;
         String value="";
-        for (int i = 0; i <intput.size() ; i++) {
+        for (int i = 0; i <intput.get(0).length(); i++) {
             String row=intput.get(i);
            value+=getMostNumber(row);
         }
 
         result=Integer.parseInt(value,2);
+        System.out.println("gamma= "+result +" "+value);
         return result;
     }
 
     private static char getMostNumber(String string){
       int countOf1= getCharCount(string,'1');
         int countOf0= getCharCount(string,'0');
+        System.out.println(string+" 0:"+countOf0+" 1:"+countOf1);
+
       return (countOf0<countOf1)?'1':'0';
 
     }
@@ -46,12 +47,13 @@ public class DayThree {
     private static int getEpsilon(List<String> intput){
         int result=0;
         String value="";
-        for (int i = 0; i <intput.size() ; i++) {
+        for (int i = 0; i <intput.get(0).length() ; i++) {
             String row=intput.get(i);
             value+=getLeastNumber(row);
         }
 
         result=Integer.parseInt(value,2);
+        System.out.println("epsilon= "+result+" "+value);
         return result;
     }
 
